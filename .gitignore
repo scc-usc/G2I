@@ -1,0 +1,30 @@
+# Experiment output
+results/
+logs/
+all_commands_runtime.txt
+
+# Generated figures (keep the checked-in ones under figures/ explicitly)
+figures/scalability.png
+figures/submodularity.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Never commit restricted data
+data/.real-data/
+data/youth-data/
+*.csv

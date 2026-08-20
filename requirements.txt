@@ -1,0 +1,24 @@
+# Core numerics
+numpy>=1.23,<2.0
+pandas>=1.5
+scipy>=1.9
+scikit-learn>=1.1
+
+# Graphs and deep learning
+# Install torch first, matched to your CUDA/CPU setup: https://pytorch.org/get-started/locally/
+torch>=2.0
+torch-geometric>=2.3
+networkx>=2.8
+
+# Plotting
+matplotlib>=3.6
+seaborn>=0.12
+
+# Notebooks
+jupyter>=1.0
+tqdm>=4.64
+
+# Only needed for notebooks/table2_explanation_benchmarks.ipynb, which runs against
+# the pre-trained models shipped with the CF^2 reference implementation (gnn_cff).
+# Install separately if you want to reproduce Table 2:
+#   pip install dgl
