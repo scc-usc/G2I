@@ -1,11 +1,5 @@
 # G2I: Generating Intervention Hypotheses using Explainable Explanations on Graphs
 
-Reference implementation for
-
-> **Generating Intervention Hypotheses using Explainable Explanations on Graphs: G2I, a Two-Stage Greedy Framework**
-> Mulin Tian and Ajitesh Srivastava. CIKM '26.
-> https://doi.org/10.1145/3799682.3840645
-
 G2I reframes counterfactual explanation on graphs as an *intervention design* problem, in two
 stages:
 
@@ -16,34 +10,6 @@ stages:
 2. **Graph-level intervention design.** Local clauses are aggregated into a Disjunctive Normal
    Form (DNF) policy by greedily maximizing a monotone, approximately submodular coverage
    function under a budget constraint.
-
----
-
-## Important: restricted data has been removed
-
-The paper evaluates on two real-world networks — a **Military** peer network and a **Youth**
-homeless-youth dataset. **Neither dataset, nor any code or notebook that loads them, is
-included in this repository**, because both are governed by IRB agreements that do not permit
-redistribution.
-
-Consequently the following results **cannot be reproduced from this repository**:
-
-| Paper artifact | Status |
-|---|---|
-| Table 3, `Military` and `Youth` rows | Not reproducible (restricted data) |
-| Table 4 (unconstrained CF-Greedy clauses, Military) | Not reproducible (restricted data) |
-| Table 5 (constrained CF-Greedy clauses, Military) | Not reproducible (restricted data) |
-| Section 5.1 discussion of risk factors | Not reproducible (restricted data) |
-| Figure 2 (additivity / modularity ratios) | Reproducible **on synthetic graphs only** — see the note in [`scripts/submodularity_analysis.py`](scripts/submodularity_analysis.py); the published figure was computed on the Military network |
-
-Everything else — Table 2, the twelve synthetic rows of Table 3, and Figure 3 — is fully
-reproducible with the code and instructions below.
-
-The pipeline itself is dataset-agnostic. To apply it to your own tabular + edge-list data,
-write a loader returning a PyTorch Geometric `Data` object (plus optional PCA components,
-one-hot `feature_partitions`, and `unchangeable_indices` / `forbidden_indices` for
-immutability constraints) and pass it to `src.experiment_runner.run_ALL`; see the `run_ALL`
-docstring for the full contract.
 
 ---
 
@@ -304,6 +270,35 @@ independent train/explain cycles on the same generated graph.
   doi       = {10.1145/3799682.3840645}
 }
 ```
+
+---
+
+## Important: restricted data has been removed
+
+The paper evaluates on two real-world networks — a **Military** peer network and a **Youth**
+homeless-youth dataset. **Neither dataset, nor any code or notebook that loads them, is
+included in this repository**, because both are governed by IRB agreements that do not permit
+redistribution.
+
+Consequently the following results **cannot be reproduced from this repository**:
+
+| Paper artifact | Status |
+|---|---|
+| Table 3, `Military` and `Youth` rows | Not reproducible (restricted data) |
+| Table 4 (unconstrained CF-Greedy clauses, Military) | Not reproducible (restricted data) |
+| Table 5 (constrained CF-Greedy clauses, Military) | Not reproducible (restricted data) |
+| Section 5.1 discussion of risk factors | Not reproducible (restricted data) |
+| Figure 2 (additivity / modularity ratios) | Reproducible **on synthetic graphs only** — see the note in [`scripts/submodularity_analysis.py`](scripts/submodularity_analysis.py); the published figure was computed on the Military network |
+
+Everything else — Table 2, the twelve synthetic rows of Table 3, and Figure 3 — is fully
+reproducible with the code and instructions below.
+
+The pipeline itself is dataset-agnostic. To apply it to your own tabular + edge-list data,
+write a loader returning a PyTorch Geometric `Data` object (plus optional PCA components,
+one-hot `feature_partitions`, and `unchangeable_indices` / `forbidden_indices` for
+immutability constraints) and pass it to `src.experiment_runner.run_ALL`; see the `run_ALL`
+docstring for the full contract.
+
 
 ## Acknowledgments
 
